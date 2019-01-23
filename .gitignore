@@ -1,6 +1,11 @@
-components
-scenes
 schema
 stories
 styleguide
 tools
+scenes
+components
+!/scenes/App/App.js
+!/scenes/Customer/Test.js
+!/scenes/Customer/index.js
+!/scenes/Customer/ClientID.js
+
