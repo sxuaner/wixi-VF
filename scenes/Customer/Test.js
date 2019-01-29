@@ -17,15 +17,16 @@ export class Test extends Component {
     this.state = {
       homegraph: UNABLE_TO_RETRIEVE,
     };
+    console.log("Test: constructor : this.props.clientID: " + this.props.clientId);
     this.retrieve();
   }
 
   retrieve() {
     const testComponent = this;
     // fetch(process.env.API_BASE + 'homegraphs?session_id=' + this.props.sessionId, {
-
-    if(this.state.homegraph.wixi.clientId != this.props.clientId){
-    fetch('./' + this.props.clientId + ".json",{
+      // this.state.homegraph.wixi.clientId != this.props.clientId &&
+    if( this.props.clientId !== ""){
+    fetch('./' + this.props.clientId,{
       method: 'GET',
       headers: {
         'Accept': 'application/json',
