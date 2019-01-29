@@ -20,6 +20,7 @@ export class ClientIDInput extends Component {
     // assing this.state.userInput to a local var named userInputLocal.
     var userInputLocal =  event.target.value;
     console.log("ClientInput:handleChange() event.target.value is " + event.target.value);
+
     var matchesLocal = [""];
     
     //The forEach() method executes a provided function once for each array element.
@@ -27,6 +28,7 @@ export class ClientIDInput extends Component {
       // if the entry contains userInput, append it to tmp array.
       // watch out for pointer "this" here
        if( entry.includes(userInputLocal)){
+         // matchesLocal[0] == "" from declaration. So only the first element has a meaningful value.
         matchesLocal.push(entry);
       }
     })

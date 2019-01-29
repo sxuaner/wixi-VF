@@ -25,7 +25,7 @@ export class ClientOutput extends Component {
     event.preventDefault();
   }
 
-  // updateSelect functions 
+  // updateSelect function sets the inital state of select list and display the first option( ref 0).
   updateSelect(){
       // when the new clientID is the same as previous one, do nothing.
       this.props.clientId.forEach(element => {
