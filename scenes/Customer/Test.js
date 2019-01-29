@@ -26,7 +26,7 @@ export class Test extends Component {
     // fetch(process.env.API_BASE + 'homegraphs?session_id=' + this.props.sessionId, {
       // this.state.homegraph.wixi.clientId != this.props.clientId &&
     if( this.props.clientId !== ""){
-    fetch('./' + this.props.clientId,{
+    fetch('./homegraphs/' + this.props.clientId,{
       method: 'GET',
       headers: {
         'Accept': 'application/json',

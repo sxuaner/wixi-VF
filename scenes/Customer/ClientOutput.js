@@ -13,35 +13,39 @@ export class ClientOutput extends Component {
     };
     console.log("Program reaches ClientOutput's constructor.")
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSubmit(){
+  handleChange(){
       // the target of this event is an "option element", it has only text attribute.
-      var selectedHG = document.getElementById("homegraphs").value;
+      let selectedHG = document.getElementById("homegraphs").value;
       console.log("ClientOutput: handleSubmit selectedHG: " + selectedHG);
       this.setState({selectedClientId: selectedHG});
       console.log("ClientOutput: handleSubmit selectedCLientID:" + this.state.selectedClientId);
     event.preventDefault();
   }
 
+  // updateSelect functions 
   updateSelect(){
+      // when the new clientID is the same as previous one, do nothing.
+      this.props.clientId.forEach(element => {
+          console.log("ClientOutput.updateSelect() this.props.clientId:" + element);
+      });
       if(this.state.clientId !== this.props.clientId){
-          this.setState({clientId:this.props.clientId});
+          this.setState({clientId:this.props.clientId, selectedClientId: this.props.clientId[1]});
       }
   }
 
- 
 
   render() {
     return (
       <div className = "clientOutput">
-      <form id="display" >
-        <label>Result(s):</label>
-            {/* The multiple attribute is a boolean attribute.
+        <label>Homegraph(s) available:
+            {/* The multiple attribute is a boolean attribute of tag select.
             When present, it specifies that multiple options can be selected at once. */}
-            <select form="display"  id= "homegraphs" onChange={this.handleSubmit}>
-             {/* The map() method creates a new array with the results of calling a provided function on every 
+            <select form="display"  id= "homegraphs" onChange={this.handleChange}>
+
+            {/* The map() method creates a new array with the results of calling a provided function on every 
             element in the calling array. */}
             {this.state.clientId.map( function(entry){
                 if(entry !== ""){
@@ -49,9 +53,9 @@ export class ClientOutput extends Component {
                             }
                 })}
         </select>
-        <input type="submit"></input>
-      </form>
-      <button onClick = {this.updateSelect.bind(this)}>Update List</button>
+
+        <button onClick = {this.updateSelect.bind(this)}>Update List</button>      
+        </label>
 
       <Test clientId={this.state.selectedClientId} authToken={""} sessionId={""}></Test>
       </div>

@@ -1,8 +1,8 @@
 <?php
     // set $dir to current folder, where env.js is. This is more flexible.
-    $dir = __DIR__;
+    $dir = __DIR__ . "/homegraphs/";
     $scanResult= scandir($dir);
-    $filenames = array_diff($scanResult, array('.', '..', 'bundle.js'));
+    $filenames = array_diff($scanResult, array('.', '..', 'bundle.js',''));
 ?>
 
 window.env = {
@@ -34,8 +34,11 @@ window.env.NAMEARRAY  = window.env.FILENAMES.split(",");
 // This function should be done in js and in Test.js file (only for now).
 
 
-// outputing 5 strings to test.
 
-console.info('env: ', window.env.CLIENT_ID);
-console.log('env: ', window.env.NAMEARRAY[2]);
-console.log('env: ', window.env.NAMEARRAY[0]);
+
+
+//  ----------   Testing ----------  outputing 5 strings to test.
+
+// window.env.NAMEARRAY.forEach( function(e){
+//     console.log(e)
+// })
